@@ -1,0 +1,24 @@
+void setup() {
+Serial.begin(9600);
+pinMode(11,OUTPUT);
+pinMode(9,INPUT);
+pinMode(8,OUTPUT);
+}
+
+void loop() {
+long duration,distance;
+digitalWrite(11,LOW);
+delayMicroseconds(2);
+digitalWrite(11,HIGH);
+delayMicroseconds(10);
+digitalWrite(11,LOW);
+duration=pulseIn(9,HIGH);
+distance=(duration/2)/29.1;
+if(distance<20){
+  digitalWrite(8,LOW);
+}
+else{
+  digitalWrite(8,HIGH);
+}
+
+}
